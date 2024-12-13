@@ -1,12 +1,15 @@
-import { dirname } from "path"
-import { fileURLToPath } from "url"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
 import { FlatCompat } from "@eslint/eslintrc"
+import js from "@eslint/js"
+import tsParser from "@typescript-eslint/parser"
 
 const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
+const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
   baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 })
 
 const eslintConfig = [
@@ -17,15 +20,21 @@ const eslintConfig = [
   ),
   {
     rules: {
-      "no-console": ["error", { allow: ["info", "warn", "error"] }],
+      "no-console": [
+        "error",
+        {
+          allow: ["info", "warn", "error"],
+        },
+      ],
+      "@typescript-eslint/no-require-imports": "off",
       "tailwindcss/classnames-order": "error",
     },
-    overrides: [
-      {
-        files: ["*.ts", "*.tsx", "*.js"],
-        parser: "@typescript-eslint/parser",
-      },
-    ],
+  },
+  {
+    files: ["**/*.ts", "**/*.tsx", "**/*.js"],
+    languageOptions: {
+      parser: tsParser,
+    },
   },
 ]
 
