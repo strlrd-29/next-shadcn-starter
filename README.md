@@ -20,4 +20,4 @@ pnpm create next-app@latest -e https://github.com/strlrd-29/next-shadcn-starter
 
 ## License
 
-Licensed under the [MIT license]("./LICENSE")
+Licensed under the [MIT license](./LICENSE)
