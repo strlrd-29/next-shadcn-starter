@@ -27,6 +27,7 @@ const eslintConfig = [
         },
       ],
       "@typescript-eslint/no-require-imports": "off",
+      "tailwindcss/no-custom-classname": "off",
       "tailwindcss/classnames-order": "error",
     },
   },
@@ -34,6 +35,14 @@ const eslintConfig = [
     files: ["**/*.ts", "**/*.tsx", "**/*.js"],
     languageOptions: {
       parser: tsParser,
+    },
+  },
+  {
+    settings: {
+      tailwindcss: {
+        callees: ["cn", "cva"],
+        config: "tailwind.config.ts",
+      },
     },
   },
 ]
