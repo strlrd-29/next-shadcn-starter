@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes"
 
 import { cn } from "@/lib/utils"
 
-import "@/styles/globals.css"
+import "./globals.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
