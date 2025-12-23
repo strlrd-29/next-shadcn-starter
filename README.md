@@ -5,7 +5,7 @@ A Next.js 15 template for building apps with shadcn/ui.
 ## Usage
 
 ```bash
-bun create next-app@latest -e https://github.com/strlrd-29/next-shadcn-starter
+bun create next-app@latest --example https://github.com/strlrd-29/next-shadcn-starter
 ```
 
 ## Features
